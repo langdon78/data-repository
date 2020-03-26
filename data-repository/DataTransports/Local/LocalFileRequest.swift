@@ -12,4 +12,13 @@ struct LocalFileRequest: Requestable {
     typealias Request = URL
     
     var request: Request
+    
+    init?<DataItem>(params: DataItem) where DataItem: FileRequestParameters {
+        let bundle = Bundle.main
+        if let url = bundle.url(forResource: params.file.fileName, withExtension: params.file.fileExtension) {
+            self.request = url
+            return
+        }
+        return nil
+    }
 }

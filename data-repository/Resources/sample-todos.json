@@ -2,13 +2,13 @@
     {
         "userId": 0,
         "id": 0,
-        "title": "Shitter",
+        "title": "Clean the bathroom",
         "completed": false 
     },
     {
         "userId": 1,
         "id": 1,
-        "title": "Welp, shit em",
+        "title": "Walk the cat",
         "completed": true
     }
 ]

@@ -15,6 +15,7 @@ struct Todo: Decodable {
     var completed: Bool
 }
 
+// MARK: - Rest Requestable
 extension Todo: RestRequestable {
     // Request Parameters
     enum Path: DataPath {
@@ -34,5 +35,21 @@ extension Todo: RestRequestable {
         var body: Body?
         var additional: [String : String]?
         var httpMethod: HTTPRequestMethod
+    }
+}
+
+// MARK: - File Requestable
+extension Todo: FileRequestable {
+    struct File: DataFile {
+        var fileName: String = "sample-todos"
+        var fileExtension: String = "json"
+        var fullName: String {
+            return "\(fileName).\(fileExtension)"
+        }
+    }
+    
+    struct FileInput: FileRequestParameters {
+        var path: Path?
+        var file: File
     }
 }

@@ -61,10 +61,14 @@ extension RESTService {
 
 extension LocalFileService {
     func todos(_ completion: @escaping Response<[Todo]>) {
-        let bundle = Bundle.main
-        if let url = bundle.url(forResource: "sample-todos", withExtension: "json") {
-            let request = LocalFileRequest(request: url)
-            self.execute(request, completionHandler: completion)
+        let defaultFile = Todo.File()
+        let request = self.request(for: [Todo].self,
+                                   path: nil,
+                                   file: defaultFile)
+        guard let fileRequest = request else {
+            completion(.failure(.dataFileDoesNotExist("\(defaultFile.fullName)")))
+            return
         }
+        self.execute(fileRequest, completionHandler: completion)
     }
 }
