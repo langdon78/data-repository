@@ -9,13 +9,9 @@
 import Foundation
 
 final class LocalFileService: DataSource  {
-    var baseUrl: URL
-    
     typealias Request = LocalFileRequest
     
-    init(baseUrl: URL) {
-        self.baseUrl = baseUrl
-    }
+    init() {}
     
     func execute<Decoded>(_ request: LocalFileRequest, completionHandler: @escaping (Result<Decoded, ResponseError>) -> Void) where Decoded : Decodable {
         read(from: request.request) { result in

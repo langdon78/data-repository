@@ -16,7 +16,7 @@ enum HTTPRequestMethod: String {
 }
 
 /// Fetch resource from REST web service
-final class RESTService: DataSource  {    
+final class RESTService: DataSource  {
     var baseUrl: URL
     var headers: [String: String]?
     

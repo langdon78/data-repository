@@ -23,6 +23,7 @@
 		BCCED68C2424FA3400421C6C /* RestRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED68B2424FA3400421C6C /* RestRequestable.swift */; };
 		BCCED68E2424FD8F00421C6C /* todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED68D2424FD8F00421C6C /* todo.swift */; };
 		BCCED6912424FE2500421C6C /* PlaceholderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED6902424FE2500421C6C /* PlaceholderRepository.swift */; };
+		BCFF89F1242C500F007954B1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFF89F0242C500F007954B1 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		BCCED68B2424FA3400421C6C /* RestRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRequestable.swift; sourceTree = "<group>"; };
 		BCCED68D2424FD8F00421C6C /* todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo.swift; sourceTree = "<group>"; };
 		BCCED6902424FE2500421C6C /* PlaceholderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderRepository.swift; sourceTree = "<group>"; };
+		BCFF89F0242C500F007954B1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		BCCED68F2424FDEC00421C6C /* PlaceholderRepository */ = {
 			isa = PBXGroup;
 			children = (
+				BCFF89F0242C500F007954B1 /* Repository.swift */,
 				BCCED6902424FE2500421C6C /* PlaceholderRepository.swift */,
 			);
 			path = PlaceholderRepository;
@@ -236,6 +239,7 @@
 				BCCED68C2424FA3400421C6C /* RestRequestable.swift in Sources */,
 				BC285164242AD715008493AA /* LocalFileRequest.swift in Sources */,
 				BCCED6872424F87B00421C6C /* RESTService.swift in Sources */,
+				BCFF89F1242C500F007954B1 /* Repository.swift in Sources */,
 				BCCED6732424F41200421C6C /* ViewController.swift in Sources */,
 				BC285166242AD723008493AA /* LocalFileResponse.swift in Sources */,
 				BCCED68E2424FD8F00421C6C /* todo.swift in Sources */,

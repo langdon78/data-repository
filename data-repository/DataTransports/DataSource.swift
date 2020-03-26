@@ -32,6 +32,7 @@ protocol DataSource {
     func execute<Decoded>(_ request: Request, completionHandler: @escaping Response<Decoded>) where Decoded: Decodable
     
     func todos(_ completion: @escaping Response<[Todo]>)
+    func todo(for id: Int, _ completion: @escaping (Result<Todo, ResponseError>) -> Void)
 }
 
 // TODO: Make errors more specific

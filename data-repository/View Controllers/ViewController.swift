@@ -37,7 +37,8 @@ class ViewController: UIViewController {
             case .success(let todos):
                 self.todos = todos
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
+                self.refreshControl.endRefreshing()
             }
         }
     }

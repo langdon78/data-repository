@@ -9,22 +9,6 @@
 
 import Foundation
 
-protocol DataAccess {
-    func todos(_ completion: @escaping (Result<[Todo], ResponseError>) -> Void)
-}
-
-class PlaceholderDataAccess<Source>: DataAccess where Source: DataSource {
-    func todos(_ completion: @escaping (Result<[Todo], ResponseError>) -> Void) {
-        dataSource.todos(completion)
-    }
-    
-    var dataSource: Source
-    
-    init(dataSource: Source) {
-        self.dataSource = dataSource
-    }
-}
-
 class PlaceholderRepository {
     // MARK: Constants
     static var baseUrl = URL(string: "https://jsonplaceholder.typicode.com")!
@@ -35,31 +19,44 @@ class PlaceholderRepository {
         return lastUpdated.addingTimeInterval(5) < Date()
     }
     
-    var dataAccess: DataAccess {
+    var repository: Repository {
         get {
             if needsCurrentData || forceRefresh {
                 lastUpdated = Date()
-                return PlaceholderDataAccess(dataSource: RESTService(baseUrl: PlaceholderRepository.baseUrl))
+                return AnyRepository(dataSource: RESTService(baseUrl: PlaceholderRepository.baseUrl))
             }
-            return PlaceholderDataAccess(dataSource: LocalFileService(baseUrl: PlaceholderRepository.baseUrl))
+            return AnyRepository(dataSource: LocalFileService())
         }
     }
     
     func todos(forceRefresh: Bool = false, _ completion: @escaping (Result<[Todo], ResponseError>) -> Void) {
         self.forceRefresh = forceRefresh
-        dataAccess.todos(completion)
+        repository.todos(completion)
+    }
+    
+    func todo(for id: Int, forceRefresh: Bool = false, _ completion: @escaping (Result<Todo, ResponseError>) -> Void) {
+        self.forceRefresh = forceRefresh
+        repository.todo(for: id, completion)
     }
     
 }
 
 extension RESTService {
+
     func todos(_ completion: @escaping (Result<[Todo], ResponseError>) -> Void) {
-        let request = self.request(for: [Todo].self, path: .todos)
+        let request = self.request(for: [Todo].self, path: .todos())
         self.execute(request, completionHandler: completion)
     }
+    
+    func todo(for id: Int, _ completion: @escaping (Result<Todo, ResponseError>) -> Void) {
+        let request = self.request(for: [Todo].self, path: .todos(id: String(id)))
+        self.execute(request, completionHandler: completion)
+    }
+
 }
 
 extension LocalFileService {
+
     func todos(_ completion: @escaping Response<[Todo]>) {
         let defaultFile = Todo.File()
         let request = self.request(for: [Todo].self,
@@ -71,4 +68,9 @@ extension LocalFileService {
         }
         self.execute(fileRequest, completionHandler: completion)
     }
+    
+    func todo(for id: Int, _ completion: @escaping (Result<Todo, ResponseError>) -> Void) {
+        completion(.failure(.dataFileDoesNotExist("Not implemented")))
+    }
+
 }

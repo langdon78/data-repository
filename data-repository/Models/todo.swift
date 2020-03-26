@@ -19,11 +19,11 @@ struct Todo: Decodable {
 extension Todo: RestRequestable {
     // Request Parameters
     enum Path: DataPath {
-        case todos
+        case todos(id: String? = nil)
         
         var value: String {
             switch self {
-            case .todos: return "todos"
+            case .todos(let id): return "todos/\(id ?? "")"
             }
         }
     }
