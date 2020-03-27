@@ -45,7 +45,8 @@ final class RESTService: DataSource  {
                     return
                 }
                 completionHandler(.success(entities))
-            case .failure(let error): completionHandler(.failure(error))
+            case .failure(let error):
+                completionHandler(.failure(error))
             }
         }
     }

@@ -38,7 +38,9 @@ class ViewController: UIViewController {
                 self.todos = todos
             case .failure(let error):
                 print(error)
-                self.refreshControl.endRefreshing()
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                }
             }
         }
     }
