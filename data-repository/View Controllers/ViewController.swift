@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl = UIRefreshControl()
-    let repo = PlaceholderRepository()
+    let repository = Repository()
     
     var todos: [Todo] = [] {
         didSet {
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     @objc func refreshData() {
-        repo.todos { (response: Result<[Todo], ResponseError>) in
+        repository.placeholder().todos { (response: Result<[Todo], ResponseError>) in
             switch response {
             case .success(let todos):
                 self.todos = todos

@@ -22,8 +22,8 @@
 		BCCED6892424F90600421C6C /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED6882424F90600421C6C /* DataSource.swift */; };
 		BCCED68C2424FA3400421C6C /* RestRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED68B2424FA3400421C6C /* RestRequestable.swift */; };
 		BCCED68E2424FD8F00421C6C /* todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED68D2424FD8F00421C6C /* todo.swift */; };
-		BCCED6912424FE2500421C6C /* PlaceholderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED6902424FE2500421C6C /* PlaceholderRepository.swift */; };
-		BCFF89F1242C500F007954B1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFF89F0242C500F007954B1 /* Repository.swift */; };
+		BCCED6912424FE2500421C6C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCED6902424FE2500421C6C /* Repository.swift */; };
+		BCFF89F1242C500F007954B1 /* PlaceholderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFF89F0242C500F007954B1 /* PlaceholderRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,8 @@
 		BCCED6882424F90600421C6C /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		BCCED68B2424FA3400421C6C /* RestRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestRequestable.swift; sourceTree = "<group>"; };
 		BCCED68D2424FD8F00421C6C /* todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo.swift; sourceTree = "<group>"; };
-		BCCED6902424FE2500421C6C /* PlaceholderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderRepository.swift; sourceTree = "<group>"; };
-		BCFF89F0242C500F007954B1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		BCCED6902424FE2500421C6C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		BCFF89F0242C500F007954B1 /* PlaceholderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +107,15 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		BC39D6E9242DAB5B00AF5A8F /* PlaceholderRepository */ = {
+			isa = PBXGroup;
+			children = (
+				BCCED6822424F83800421C6C /* Models */,
+				BCFF89F0242C500F007954B1 /* PlaceholderRepository.swift */,
+			);
+			path = PlaceholderRepository;
+			sourceTree = "<group>";
+		};
 		BCCED6622424F41200421C6C = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +139,7 @@
 				BC28516F242AE957008493AA /* Storyboards */,
 				BC28516E242AE940008493AA /* Resources */,
 				BC28516D242AE8EE008493AA /* DataTransports */,
-				BCCED68F2424FDEC00421C6C /* PlaceholderRepository */,
-				BCCED6822424F83800421C6C /* Models */,
+				BCCED68F2424FDEC00421C6C /* Repositories */,
 				BCCED66E2424F41200421C6C /* AppDelegate.swift */,
 			);
 			path = "data-repository";
@@ -155,13 +163,13 @@
 			path = REST;
 			sourceTree = "<group>";
 		};
-		BCCED68F2424FDEC00421C6C /* PlaceholderRepository */ = {
+		BCCED68F2424FDEC00421C6C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				BCFF89F0242C500F007954B1 /* Repository.swift */,
-				BCCED6902424FE2500421C6C /* PlaceholderRepository.swift */,
+				BC39D6E9242DAB5B00AF5A8F /* PlaceholderRepository */,
+				BCCED6902424FE2500421C6C /* Repository.swift */,
 			);
-			path = PlaceholderRepository;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +247,7 @@
 				BCCED68C2424FA3400421C6C /* RestRequestable.swift in Sources */,
 				BC285164242AD715008493AA /* LocalFileRequest.swift in Sources */,
 				BCCED6872424F87B00421C6C /* RESTService.swift in Sources */,
-				BCFF89F1242C500F007954B1 /* Repository.swift in Sources */,
+				BCFF89F1242C500F007954B1 /* PlaceholderRepository.swift in Sources */,
 				BCCED6732424F41200421C6C /* ViewController.swift in Sources */,
 				BC285166242AD723008493AA /* LocalFileResponse.swift in Sources */,
 				BCCED68E2424FD8F00421C6C /* todo.swift in Sources */,
@@ -247,7 +255,7 @@
 				BCCED6892424F90600421C6C /* DataSource.swift in Sources */,
 				BCCED6852424F86500421C6C /* RESTRequest.swift in Sources */,
 				BC28516C242AE6A7008493AA /* LocalFileRequestable.swift in Sources */,
-				BCCED6912424FE2500421C6C /* PlaceholderRepository.swift in Sources */,
+				BCCED6912424FE2500421C6C /* Repository.swift in Sources */,
 				BCC5779B2429AF7B004A69D8 /* TodoDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

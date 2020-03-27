@@ -30,9 +30,6 @@ protocol DataSource {
     ///   - completionHandler: Handler for Result, if successful
     ///     returns decoded data object otherwise an error
     func execute<Decoded>(_ request: Request, completionHandler: @escaping Response<Decoded>) where Decoded: Decodable
-    
-    func todos(_ completion: @escaping Response<[Todo]>)
-    func todo(for id: Int, _ completion: @escaping (Result<Todo, ResponseError>) -> Void)
 }
 
 // TODO: Make errors more specific
@@ -41,4 +38,5 @@ enum ResponseError: Error {
     case unableToParseResponse
     case network(Error)
     case dataFileDoesNotExist(String)
+    case unimplementedMethod(String)
 }
