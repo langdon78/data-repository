@@ -18,7 +18,6 @@ class ViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -38,9 +37,9 @@ class ViewController: UIViewController {
                 self.todos = todos
             case .failure(let error):
                 print(error)
-                DispatchQueue.main.async {
-                    self.refreshControl.endRefreshing()
-                }
+            }
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -57,9 +56,7 @@ class ViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: 10),
-            label.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 0),
-            label.topAnchor.constraint(equalTo: tableView.tableHeaderView!.topAnchor),
-            label.bottomAnchor.constraint(equalTo: tableView.tableHeaderView!.bottomAnchor)
+            label.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 0)
         ])
     }
     
@@ -85,7 +82,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "segueTodoDetail", sender: indexPath)
     }
 }
