@@ -20,7 +20,7 @@ class Repository {
     }
     
     // MARK: Timer based switch
-    func placeholder(forceRefresh: Bool = false) -> PlaceholderRepository {
+    func placeholder(forceRefresh: Bool = false) -> any PlaceholderRepository {
         if needsCurrentData || forceRefresh {
             lastUpdated = Date()
             return Repository.restPlaceholder
